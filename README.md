@@ -1,33 +1,22 @@
-# Khalid Bakhit — Portfolio (Render Static Site)
+# Khalid Bakhit — Portfolio
 
-A single self-contained `index.html` — your photo, transcript, resume, and infographic
-are all embedded, so there are no other files to host.
+A single self-contained `index.html` — photo, transcript, resume, and infographic are all
+embedded, so there are no other files to host.
 
-## Deploy on Render (free Static Site)
+**Live site:** https://k-bakhit.github.io/Portfolio-Site/
 
-Render deploys from a Git repo, so this is two short steps.
+## Deploy on GitHub Pages
 
-### 1. Put it in a GitHub repo
-```bash
-cd portfolio-site
-git init
-git add index.html
-git commit -m "Portfolio site"
-# create an empty repo on github.com first, then:
-git remote add origin https://github.com/<your-username>/<repo-name>.git
-git branch -M main
-git push -u origin main
-```
+1. Push `index.html` to the `main` branch of this repo:
+   ```bash
+   cd portfolio-site
+   git add -A
+   git commit -m "Update portfolio"
+   git push
+   ```
+2. On GitHub, open **Settings → Pages**.
+3. Under **Build and deployment**, set **Source** to **Deploy from a branch**.
+4. Choose branch **main**, folder **/ (root)**, and **Save**.
+5. The site goes live at `https://k-bakhit.github.io/Portfolio-Site/` within a minute or two.
 
-### 2. Create the Render Static Site
-1. Go to https://dashboard.render.com → **New** → **Static Site**.
-2. Connect your GitHub and pick the repo.
-3. Settings:
-   - **Build Command:** *(leave empty)*
-   - **Publish Directory:** `.`
-4. Click **Create Static Site**.
-
-Render builds and gives you a free, always-on HTTPS URL like
-`https://your-site.onrender.com`. Every time you `git push`, it redeploys automatically.
-
-Static Sites on Render are permanently free and do **not** spin down.
+Every push to `main` redeploys the site automatically.

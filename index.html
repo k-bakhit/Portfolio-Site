@@ -330,17 +330,17 @@ body>*{position:relative;z-index:1}
       </div>
       <div class="body">
         <h3>Air Fryer Demand &amp; Pricing</h3>
-        <p class="lead">An end-to-end demand-estimation pipeline on a <strong>5-year, 10-brand dataset (2019–2023)</strong>, turning an econometric model into a pricing strategy.</p>
+        <p class="lead">A two-person econometrics project that turns five years of air-fryer sales into a pricing playbook. We built a brand-year panel from a 10-brand dataset (2019–2023), estimated demand, and worked back to the prices and margins that move market share.</p>
         <div class="figs">
           <div class="f"><div class="v">0.76</div><div class="l">Model R²</div></div>
           <div class="f"><div class="v">10</div><div class="l">Brands</div></div>
           <div class="f"><div class="v"><span class="accent">~31%</span></div><div class="l">Share drop / +$10</div></div>
         </div>
         <ul>
-          <li>Estimated a <strong>multinomial logit demand model</strong> with brand &amp; year fixed effects</li>
-          <li>Ran <strong>price-elasticity simulations</strong> from the logit estimates to see how each brand's share responds to price, which produced the ~31% drop per +$10</li>
-          <li>Computed unit costs, markups, and profit indices with the Lerner condition, which flagged Ninja as the top performer</li>
-          <li>Delivered a six-slide brief translating the econometrics for a non-technical audience</li>
+          <li>Built a clean brand-year panel, then estimated a <strong>multinomial logit demand model</strong> with brand and year fixed effects (R² = 0.76)</li>
+          <li>Recovered a price coefficient of <strong>-0.0377</strong>, which works out to about a 31% drop in market share for every $10 of price</li>
+          <li>Backed out per-brand unit costs and markups ($27–$33) and ranked brands by a share-weighted profit index using the Lerner condition, with Ninja on top at 6.31</li>
+          <li>Packaged the econometrics into a six-slide pricing and positioning brief for a non-technical audience</li>
         </ul>
         <div class="tags"><span>Python</span><span>Pandas</span><span>NumPy</span><span>Statsmodels</span></div>
         <div class="links"><a href="https://github.com/EfremE24/Demand-Estimation" target="_blank">GitHub repository ↗</a></div>
@@ -350,21 +350,21 @@ body>*{position:relative;z-index:1}
     <!-- Soccer -->
     <div class="row">
       <div class="meta">
-        <span class="label">Predictive analytics</span>
-        <div class="org">FIFA player data<br>EDA · modeling</div>
+        <span class="label">Exploratory analysis</span>
+        <div class="org">FC 26 player data<br>EDA · visualization</div>
       </div>
       <div class="body">
         <h3>Soccer Player Market Valuation</h3>
-        <p class="lead">An analysis of <strong>18,000+ FIFA player records</strong> to surface the key drivers of individual market value across age, position, potential, and nationality.</p>
+        <p class="lead">A from-scratch study of what actually drives a player's market value, built across five notebooks from data acquisition to a finished infographic. I worked through <strong>18,000+ FIFA (FC 26) records</strong> to separate the attributes that move value from the ones that just track with being good.</p>
         <div class="figs">
           <div class="f"><div class="v">18k+</div><div class="l">Player records</div></div>
-          <div class="f"><div class="v">Leak-safe</div><div class="l">Feature design</div></div>
+          <div class="f"><div class="v">11</div><div class="l">Positions profiled</div></div>
         </div>
         <ul>
-          <li>Log transforms and position-specific segmentation to reveal age–performance dynamics</li>
-          <li>Used <strong>correlation and grouped analysis</strong> across age, position, and potential to rank value drivers, with age and potential leading once position was controlled for</li>
-          <li>A fully reproducible clean → filter → validate → transform pipeline</li>
-          <li>Designed an executive-ready infographic of the findings</li>
+          <li>Structured the work as a five-notebook pipeline: acquisition and cleaning, exploration, then separate visualization passes for distributions and for correlation</li>
+          <li>Profiled market value with KDE and histogram-with-outlier views, then applied a <strong>log transform</strong> to handle the heavy right skew before any group comparison</li>
+          <li>Ranked value drivers with a <strong>correlation matrix</strong> and per-attribute line plots, and broke age against value down by position to show where youth carries a premium</li>
+          <li>Distilled everything into one executive infographic a non-technical reader can follow</li>
         </ul>
         <div class="tags"><span>Python</span><span>Pandas</span><span>Matplotlib</span><span>Seaborn</span></div>
         <div class="links">
@@ -382,19 +382,21 @@ body>*{position:relative;z-index:1}
       </div>
       <div class="body">
         <h3>Stellar Object Classification</h3>
-        <p class="lead">A <strong>neural network</strong> classifying astrophysical objects from photometric data, tuned and validated against a probabilistic baseline. Completed on UVA's <strong>Rivanna</strong> high-performance computing cluster per the professor's instructions.</p>
+        <p class="lead">A neural network that sorts <strong>Sloan Digital Sky Survey</strong> objects into stars, galaxies, and quasars from six photometric measurements. Built for PHYS 1655 and run on UVA's <strong>Rivanna</strong> HPC cluster, it pairs a tuned classifier with a real statistical treatment of the data underneath.</p>
         <div class="figs">
           <div class="f"><div class="v"><span class="accent">97%</span></div><div class="l">Accuracy</div></div>
           <div class="f"><div class="v">0.99</div><div class="l">AUC-ROC</div></div>
           <div class="f"><div class="v">9,990</div><div class="l">Observations</div></div>
         </div>
         <ul>
-          <li>Optimized an <strong>MLPClassifier</strong> with GridSearchCV hyperparameter tuning</li>
-          <li>Standardized the features and tuned the network with <strong>cross-validation</strong>, selecting on AUC so it ranked objects well rather than just maximizing accuracy</li>
-          <li>Engineered a reduced photometric feature set to prevent data leakage</li>
-          <li>Benchmarked against Gaussian Naïve Bayes; validated with confusion matrices</li>
+          <li>Trained a multilayer perceptron (<strong>MLPClassifier</strong>) on the five SDSS magnitude bands (u, g, r, i, z) plus redshift, with <strong>StandardScaler</strong> and <strong>GridSearchCV</strong> cross-validation, reaching about 97% accuracy and an AUC near 0.99</li>
+          <li>Benchmarked the network against a <strong>Gaussian Naïve Bayes</strong> baseline and read the results through per-class confusion matrices and ROC curves</li>
+          <li>Fit each class's brightness distribution with <strong>scipy.optimize.curve_fit</strong>, then checked the fits with reduced chi-squared and pull-distribution analysis</li>
+          <li>Worked around real class imbalance (850 quasars against roughly 5,000 galaxies) and kept the feature set leakage-safe</li>
+          <li>Ran the full pipeline on Rivanna through JupyterLab, the way the course required</li>
         </ul>
         <div class="tags"><span>scikit-learn</span><span>SciPy</span><span>NumPy</span><span>Rivanna HPC</span></div>
+        <div class="links"><a href="https://github.com/Khalid-Bakhit/Stellar-Final-Project" target="_blank">GitHub repository ↗</a></div>
       </div>
     </div>
     </div></div>
